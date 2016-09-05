@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.1.1.final using JasperReports Library version 6.1.1  -->
+<!-- 2016-01-16T20:12:45 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioBrancoFornecedor" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="71112bb4-570d-4b9e-ba60-60af220fa3b9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="postgres"/>
+	<queryString>
+		<![CDATA[select * from view_fornecedor_detalhes order by nome]]>
+	</queryString>
+	<field name="codf" class="java.lang.Integer"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="cnpj" class="java.lang.String"/>
+	<field name="inscricao_estadual" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="website" class="java.lang.String"/>
+	<field name="rua" class="java.lang.String"/>
+	<field name="numero" class="java.lang.String"/>
+	<field name="bairro" class="java.lang.String"/>
+	<field name="cep" class="java.lang.String"/>
+	<field name="complemento" class="java.lang.String"/>
+	<field name="nome_cidade" class="java.lang.String"/>
+	<field name="uf" class="java.lang.String"/>
+	<field name="codt" class="java.lang.Integer"/>
+	<field name="numero_tel" class="java.lang.String"/>
+	<field name="codcel" class="java.lang.Integer"/>
+	<field name="numero_cel" class="java.lang.String"/>
+	<group name="nome">
+		<groupExpression><![CDATA[$F{nome}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="107" splitType="Stretch">
+			<staticText>
+				<reportElement x="90" y="20" width="390" height="37" forecolor="#FF0000" uuid="081e4646-713b-4be2-b7a8-19925e8e8095"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Relatório de Fornecedores da Acquatic e Lazer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="248" y="60" width="32" height="23" uuid="8aba7a2b-b3ac-4b4a-b240-f5505afe417f"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="280" y="60" width="110" height="23" uuid="0e4f4da6-b1c9-4416-8b43-e39cf82863c3"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="396" y="0" width="84" height="21" uuid="8c2ccbe0-1b37-4a89-85cf-8e394a055067"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="480" y="0" width="40" height="21" uuid="de723b69-c6df-46fa-bfde-611b8005eacf"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="14" y="0" width="55" height="20" uuid="34bcf892-7103-434c-9d3e-bee8b96aec9f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="411" y="0" width="54" height="20" uuid="49226890-def7-469a-86bc-f9492e1a595b"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CNPJ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="10" y="20" width="533" height="1" uuid="210fdfa7-db9e-47d5-ac34-a9b28e4f5bfd"/>
+			</line>
+			<staticText>
+				<reportElement x="260" y="0" width="70" height="20" uuid="80cd681e-8344-436b-9323-ac89808747d3"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefone]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField>
+				<reportElement x="14" y="0" width="226" height="13" uuid="96be439e-cf2c-4d56-8cac-144bdab2e599">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="411" y="0" width="133" height="13" uuid="f660350b-a3ac-4e84-a17a-cdf139aa1f21"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cnpj}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="0" width="100" height="13" uuid="b2e502fa-f938-41c2-857d-53afae63f7fc"/>
+				<textFieldExpression><![CDATA[$F{numero_tel}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="17" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="444" y="0" width="100" height="20" uuid="41eb3e99-3a20-4f3a-8841-17af63b9c57d"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="350" y="0" width="85" height="20" uuid="bf8be165-15cd-4945-9ae7-b49d40cd3e2e"/>
+				<text><![CDATA[Total de páginas:]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="13" splitType="Stretch"/>
+	</summary>
+</jasperReport>

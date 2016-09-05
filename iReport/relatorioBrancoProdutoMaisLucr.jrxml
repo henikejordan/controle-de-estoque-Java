@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.1.1.final using JasperReports Library version 6.1.1  -->
+<!-- 2015-12-08T23:15:24 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioBrancoProdutoMaisLucr" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="71112bb4-570d-4b9e-ba60-60af220fa3b9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="postgres"/>
+	<queryString>
+		<![CDATA[select * from view_produtos_mais_lucrados]]>
+	</queryString>
+	<field name="cod_barras" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="lucro" class="java.math.BigDecimal"/>
+	<field name="qtd_unitarias" class="java.lang.Long"/>
+	<group name="nome">
+		<groupExpression><![CDATA[$F{nome}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="109" splitType="Stretch">
+			<staticText>
+				<reportElement x="120" y="20" width="346" height="50" forecolor="#FF0000" uuid="081e4646-713b-4be2-b7a8-19925e8e8095"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Relatório de Produtos mais Lucrados da Acquatic e Lazer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="248" y="80" width="32" height="23" uuid="077e6778-c5bd-4a94-911b-107dbbc3159e"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="280" y="80" width="110" height="23" uuid="a433eead-0db7-45ff-af01-977882c52386"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="402" y="0" width="70" height="21" uuid="8c2ccbe0-1b37-4a89-85cf-8e394a055067"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="472" y="0" width="40" height="21" uuid="de723b69-c6df-46fa-bfde-611b8005eacf"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="140" y="0" width="55" height="20" uuid="34bcf892-7103-434c-9d3e-bee8b96aec9f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="12" y="33" width="533" height="1" uuid="210fdfa7-db9e-47d5-ac34-a9b28e4f5bfd"/>
+			</line>
+			<staticText>
+				<reportElement x="12" y="0" width="88" height="20" uuid="2df45ebd-7828-432b-93f9-b638ad60e544"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cód de barras:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="100" height="33" uuid="7c035fcc-39b2-4675-a690-cfcf93979044"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lucro R$:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="1" width="100" height="32" uuid="907d83ab-54f6-474e-92b7-1b0e6138b23f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quantidade unitária vendida:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="140" y="0" width="135" height="20" uuid="66a9578b-45c0-4626-8408-bb4ef841966b"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="12" y="0" width="108" height="20" uuid="0c4425f7-fa5d-41af-996f-d5e4b40b97b8"/>
+				<textFieldExpression><![CDATA[$F{cod_barras}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="-1" width="100" height="21" uuid="b54f29f1-eb24-4c87-8f96-5fdb0cf22470"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{lucro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="0" width="100" height="20" uuid="e6ca27cf-3781-42b9-97b6-663b0a0b71b5"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{qtd_unitarias}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="20" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="445" y="0" width="100" height="20" uuid="41eb3e99-3a20-4f3a-8841-17af63b9c57d"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="355" y="0" width="85" height="20" uuid="bf8be165-15cd-4945-9ae7-b49d40cd3e2e"/>
+				<text><![CDATA[Total de páginas:]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="15" splitType="Stretch"/>
+	</summary>
+</jasperReport>
